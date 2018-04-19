@@ -1,6 +1,5 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
-import DataService from '../src/services/DataStoreService';
 import resources from '../src/etc/resources';
 import { setSlotValue, newSession } from './utils/alexaTestHelper';
 
@@ -10,9 +9,6 @@ const stubs = [];
 let alexa = newSession(va);
 
 describe('Amazon Standard Intents', () => {
-  before(() => stubs.push(sinon.stub(DataService, 'logResponse')));
-  after(() => stubs.forEach(stub => stub.restore()));
-
   describe('Launch Intent', () => {
     it('Returns the correct prompt', async () => {
       const result = await alexa.launch();
