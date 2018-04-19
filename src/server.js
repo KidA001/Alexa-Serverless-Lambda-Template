@@ -5,6 +5,7 @@ import './environment';
 import handlers from './handlers/handlers';
 import resources from './etc/resources';
 import Raven from 'raven';
+import { handler } from './alexa'
 
 Raven.config(process.env.sentry_dsn).install();
 
@@ -24,11 +25,7 @@ server.post('/', (req, res) => {
     },
   };
 
-  const alexa = Alexa.handler(req.body, context);
-  alexa.appId = process.env.alexa_app_id;
-  alexa.resources = resources;
-  alexa.registerHandlers(...handlers);
-  alexa.execute();
+  handler(req.body, context);
 });
 
 server.listen(3000, () => {
