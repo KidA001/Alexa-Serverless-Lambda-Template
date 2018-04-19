@@ -1,14 +1,24 @@
 # Alexa Template
 
-This project is an Alexa Skill written in JavaScript (ES7). It is intended to be deployed to AWS Lambda, but can also be run via Express server. Deployment and infrastructure is managed by [Serverless](https://serverless.com).
+This project is an Alexa Skill written in JavaScript (ES7). It is intended to be deployed to AWS Lambda, but can also be run via Express server. Deployment and infrastructure is managed by [Serverless](https://serverless.com)
+
+`npm install -g serverless` to install
+
+The provided interaction model has the basic intents: LaunchRequest, CancelIntent, HelpIntent, StopIntent. I also added one additional intent called `SayMyNameIntner`. When you can say `Alexa, ask hello world to say Brian`, and it will respond back to you. This is more of an example to see a custom intent with slot filling.
+
+`./src/server.js` is the entrypoint for running locally
+`./src/alexa.js` is the entrypoint for the lambda function
+
+Please feel free to PR or reach out on GH with any issues.
+
 
 ## Setup
 
-* [Create](https://developer.amazon.com/edw/home.html#/skills) a new Alexa Skill. Note the Application Id.
+* [Create](https://developer.amazon.com/edw/home.html#/skills) a new Alexa Skill. Note the Application ID.
 
 * Launch the Skill Builder. Paste the contents of `interaction-model.json` into the Code Editor. Save and build the model.
 
-* Configure AWS CLI
+* Configure [AWS CLI](https://aws.amazon.com/cli/)
 
  ```bash
  aws configure --profile [your-profile-name]
@@ -18,11 +28,7 @@ This project is an Alexa Skill written in JavaScript (ES7). It is intended to be
  Default output format [None]: json
  ```
 
-* Install Node Modules
-
- ```bash
- npm i
- ```
+* Install Node Modules with `npm install`
 
 * Load environemnt specific credentials
   * Create a `env.yaml` file like below and place it in the root directory of the application
