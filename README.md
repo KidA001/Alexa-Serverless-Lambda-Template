@@ -80,7 +80,10 @@ In Chrome 60+ there is an item "Open dedicated DevTools for Node" in chrome://in
   ~Sometimes~ Often you need to run locally to debug and test. You can test alexa on your local machine by running this server with node and pointing your alexa skill to it.
    - In the root directory run `npm run start` which will start the server on port 3000
    - In another shell use ngrok to create a tunnel to your machine [ngrok](https://ngrok.com/)
-    - Type `ngrok http 3000` and copy the `https` url it gives you
-    - In your skill settings on the alexa dashboard, change your endpoint to `https` and paste the `https` url ngrok gave you
-    - Make sure to select `My developmentendpoint is a sub-domainof a domain that has a wildcard cerficiate`
+     - Type `ngrok http 3000` and copy the `https` url it gives you
+     - In your skill settings on the alexa dashboard, change your endpoint to `https` and paste the `https` url ngrok gave you
+     - Make sure to select `My developmentendpoint is a sub-domainof a domain that has a wildcard cerficiate`
   - Now you can click the `Test` tab in your alexa dashboard to invoke your skill and it should now route to your localserver
+
+### Sentry
+  I'm using Sentrys wrapper for catching and reporting errors in lambda. You can create a free Sentry account at http://sentry.io/ and add the DSN url in the serverless.yml `custom` section - If you choose not to use Sentry, everything will still work
