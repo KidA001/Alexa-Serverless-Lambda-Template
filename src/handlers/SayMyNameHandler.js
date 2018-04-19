@@ -4,7 +4,7 @@ export default class SayMyNameHandler {
     this.userProvidedName = this.alexa.event.request.intent.slots.name.value;
   }
 
-  async respond() {
+  respond() {
     if (!this.userProvidedName) return this.promptForName();
     return this.alexa.emit(':tell', `Oh hey there ${this.userProvidedName}`);
   }
