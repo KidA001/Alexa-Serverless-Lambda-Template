@@ -6,11 +6,12 @@ export default class SayMyNameHandler {
 
   respond() {
     if (!this.userProvidedName) return this.promptForName();
-    return this.alexa.emit(':tell', `Oh hey there ${this.userProvidedName}`);
+    const say = `I do bid you a good day ${this.userProvidedName}`;
+    this.alexa.emit(':tell', say);
   }
 
   promptForName() {
-    const tell = 'Sure, what is your first name?'
-    return this.alexa.emit(':elicitSlot', 'name', tell);
+    const say = 'Sure, what is your first name?';
+    this.alexa.emit(':elicitSlot', 'name', say);
   }
 }

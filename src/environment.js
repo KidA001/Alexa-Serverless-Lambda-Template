@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import yaml from 'js-yaml'; // eslint-disable-line import/no-extraneous-dependencies
+import yaml from 'js-yaml';
 
 // Only loaded in local dev environment
 // ENVs are loaded by serverless.yml in staging/production

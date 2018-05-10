@@ -7,19 +7,19 @@ const handlers = {
     return sayMyNameHandler.respond()
   },
   LaunchRequest() {
-    return this.emit(':ask', this.t('WELCOME_PROMPT'), this.t('WELCOME_REPROMPT'));
+    this.emit(':ask', this.t('WELCOME_PROMPT'), this.t('WELCOME_REPROMPT'));
   },
-  'AMAZON.CancelIntent': function () { // eslint-disable-line func-names
-    return this.emit(':tell', this.t('GOODBYE'));
+  'AMAZON.CancelIntent': function () {
+    this.emit(':tell', this.t('GOODBYE'));
   },
-  'AMAZON.HelpIntent': function () { // eslint-disable-line func-names
-    return this.emit(':ask', this.t('HELP_PROMPT'), this.t('WELCOME_REPROMPT'));
+  'AMAZON.HelpIntent': function () {
+    this.emit(':ask', this.t('HELP_PROMPT'), this.t('WELCOME_REPROMPT'));
   },
-  'AMAZON.StopIntent': function () { // eslint-disable-line func-names
-    return this.emit(':tell', this.t('GOODBYE'));
+  'AMAZON.StopIntent': function () {
+    this.emit(':tell', this.t('GOODBYE'));
   },
   SessionEndedRequest() {
-    return this.emit(':tell', this.t('GOODBYE'));
+    this.emit(':tell', this.t('GOODBYE'));
   },
 };
 
